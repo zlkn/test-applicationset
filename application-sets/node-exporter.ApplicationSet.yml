@@ -11,10 +11,10 @@ spec:
     - clusters: {}
   template:
     metadata:
-      name: 'node-exporter-{{nameqqq}}'
+      name: 'node-exporter-{{name}}'
       namespace: argocd
       labels:
-        docker-desktop/cluster: '{{nameqqq}}'
+        docker-desktop/cluster: '{{name}}'
     spec:
       project: default
       source:
