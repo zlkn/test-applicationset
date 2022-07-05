@@ -17,7 +17,7 @@ spec:
       name: 'node-exporter-{{name}}'
       namespace: argocd
       labels:
-        docker-desktop/cluster: '{{name}}'
+        docker-desktop/cluster: '{{nameqqq}}'
     spec:
       project: default
       source:
