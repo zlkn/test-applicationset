@@ -1,0 +1,18 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-app
+  namespace: argocd
+  labels:
+    docker-desktop/cluster: in-cluster
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/zlkn/test-applicationset.git
+    path: apps
+    targetRevision: HEAD
+  destination:
+    name: in-cluster
+  syncPolicy:
+    automated: {}
