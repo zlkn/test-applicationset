@@ -16,6 +16,8 @@ spec:
     metadata:
       name: 'kube-state-metrics-{{cluster}}'
       namespace: argocd
+      labels:
+        docker-desktop/cluster: '{{name}}'
     spec:
       project: default
       source:
