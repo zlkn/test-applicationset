@@ -1,0 +1,38 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: kube-state-metrics
+  namespace: argocd
+spec:
+  generators:
+    - clusters:
+        selector:
+          matchLabels:
+            argocd.argoproj.io/secret-type: cluster
+  template:
+    metadata:
+      name: 'kube-state-metrics-{{name}}'
+      namespace: argocd
+    spec:
+      project: default
+      source:
+        repoURL: https://prometheus-community.github.io/helm-charts
+        chart: kube-state-metrics
+        targetRevision: 4.7.2
+        helm:
+          releaseName: kube-state-metrics
+          values: |
+            ---
+            rbac:
+              create: true
+            serviceAccount:
+              create: true
+            customLabels:
+              managed-by: kube-addons
+      destination:
+        name: '{{name}}'
+        namespace: monitoring
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
