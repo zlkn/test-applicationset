@@ -5,7 +5,7 @@ metadata:
   name: application-sets
   namespace: argocd
 spec:
-  project: devops
+  project: default
   source:
     repoURL: https://github.com/zlkn/test-applicationset.git
     path: application-sets
