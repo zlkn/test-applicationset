@@ -8,13 +8,10 @@ metadata:
     docker-desktop/cluster: in-cluster
 spec:
   generators:
-    - clusters:
-        selector:
-          matchLabels:
-            argocd.argoproj.io/secret-type: cluster
+    - clusters: {}
   template:
     metadata:
-      name: 'node-exporter-{{name}}'
+      name: 'node-exporter-{{nameqqq}}'
       namespace: argocd
       labels:
         docker-desktop/cluster: '{{nameqqq}}'
