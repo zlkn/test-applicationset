@@ -4,6 +4,8 @@ kind: ApplicationSet
 metadata:
   name: node-exporter
   namespace: argocd
+  labels:
+    docker-desktop/cluster: in-cluster
 spec:
   generators:
     - clusters:

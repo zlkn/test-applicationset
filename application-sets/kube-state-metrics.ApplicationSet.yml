@@ -4,6 +4,8 @@ kind: ApplicationSet
 metadata:
   name: kube-state-metrics
   namespace: argocd
+  labels:
+    docker-desktop/cluster: in-cluster
 spec:
   generators:
     - clusters:

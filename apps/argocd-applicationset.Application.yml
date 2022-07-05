@@ -4,6 +4,8 @@ kind: Application
 metadata:
   name: argocd-applicationset
   namespace: argocd
+  labels:
+    docker-desktop/cluster: in-cluster
 spec:
   project: default
   source:
