@@ -23,6 +23,10 @@ spec:
         targetRevision: 3.0.0
         helm:
           releaseName: prometheus-node-exporter
+          values: |
+            ---
+            nodeExporter:
+              hostRootfs: false
       destination:
         name: '{{name}}'
         namespace: monitoring
