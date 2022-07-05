@@ -25,8 +25,8 @@ spec:
           releaseName: prometheus-node-exporter
           values: |
             ---
-            nodeExporter:
-              hostRootfs: false
+            hostRootFsMount:
+              enabled: false
       destination:
         name: '{{name}}'
         namespace: monitoring
