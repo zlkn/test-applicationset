@@ -33,7 +33,7 @@ spec:
             customLabels:
               managed-by: kube-addons
       destination:
-        name: '{{name}}'
+        name: '{{cluster}}'
         namespace: monitoring
       syncPolicy:
         syncOptions:

@@ -16,6 +16,8 @@ spec:
     metadata:
       name: 'node-exporter-{{name}}'
       namespace: argocd
+      labels:
+        docker-desktop/cluster: '{{name}}'
     spec:
       project: default
       source:
