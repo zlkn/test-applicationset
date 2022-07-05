@@ -1,0 +1,26 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-applicationset
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://argoproj.github.io/argo-helm
+    chart: argocd-applicationset
+    targetRevision: 1.6.0
+    helm:
+      releaseName: argocd-applicationset
+      values: |
+        ---
+        installCRDs: true
+        replicaCount: 2
+        args:
+          enableLeaderElection: true
+  destination:
+    name: in-cluster
+    namespace: argocd
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
