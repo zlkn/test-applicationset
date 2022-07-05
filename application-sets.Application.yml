@@ -1,0 +1,16 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: application-sets
+  namespace: argocd
+spec:
+  project: devops
+  source:
+    repoURL: https://github.com/zlkn/test-applicationset.git
+    path: application-sets
+    targetRevision: HEAD
+  destination:
+    name: in-cluster
+  syncPolicy:
+    automated: {}
